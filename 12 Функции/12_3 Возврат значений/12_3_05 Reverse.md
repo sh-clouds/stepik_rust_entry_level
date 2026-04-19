@@ -24,3 +24,39 @@ Sample Output:
 Напишите программу. Тестируется через stdin → stdout
 Верно решили 50 учащихся
 Из всех попыток 88% верных
+
+
+use std::io;
+use std::str::FromStr;
+
+fn input<T: FromStr>() -> T 
+where
+    T::Err: std::fmt::Debug,
+{
+    let mut input = String::new();
+    std::io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read input");
+    input.trim().parse::<T>().expect("Failed to parse input")
+}
+
+fn main() {
+    let mut array = [0i32; 10];
+    
+    for i in 0..(array.len())
+    {
+        array[i] = input::<i32>();
+    } 
+    array = reverse(array);
+    println!("{:?}",array);
+}
+
+fn reverse(mut array: [i32; 10]) -> [i32; 10] {
+    let mut arr1 = [0i32; 10];
+    
+    for i in (0..array.len())
+    {
+        arr1[i] = array[array.len()-1-i]        
+    }
+    arr1   
+}

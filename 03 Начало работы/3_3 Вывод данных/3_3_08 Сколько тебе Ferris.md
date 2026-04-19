@@ -9,7 +9,7 @@
 
 fn main() {
     let num = 2025;
-    println!("{}", num-2018);// put your Rust code here
+    println!("{}", num-2018); // put your Rust code here
 }
 
 
